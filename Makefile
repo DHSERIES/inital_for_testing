@@ -13,6 +13,10 @@ install: $(VENV_DIR)
 	$(VENV_DIR)/bin/pip install --upgrade pip
 	$(VENV_DIR)/bin/pip install -r $(REQUIREMENTS)
 
+create_dirs:
+	@mkdir -p data src notebook
+	@touch notebook/notebook.ipynb
+	@echo "Directories and beginner notebook file created."
 # Run tests with pytest
 test:
 	$(VENV_DIR)/bin/pytest
@@ -22,4 +26,4 @@ style:
 	$(VENV_DIR)/bin/flake8 .
 
 # Default target to create the virtual environment and install dependencies
-all: install test style
+all: install create_dirs test style
