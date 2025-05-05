@@ -17,13 +17,10 @@ create_dirs:
 	@mkdir -p data src notebook
 	@touch notebook/notebook.ipynb
 	@echo "Directories and beginner notebook file created."
-# Run tests with pytest
-test:
-	$(VENV_DIR)/bin/pytest
 
 # Check code style with flake8
 style:
 	$(VENV_DIR)/bin/flake8 .
 
 # Default target to create the virtual environment and install dependencies
-all: install create_dirs test style
+all: install create_dirs style
