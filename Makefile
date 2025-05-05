@@ -12,14 +12,12 @@ $(VENV_DIR):
 install: $(VENV_DIR)
 	$(VENV_DIR)/bin/pip install --upgrade pip
 	$(VENV_DIR)/bin/pip install -r $(REQUIREMENTS)
-	$(VENV_DIR)/bin/pip install jupyter
-	$(VENV_DIR)/bin/python -m ipykernel install --user --name=.venv --display-name "Python (venv)"
 
 
 create_dirs:
-	@mkdir -p data src notebook
-	@touch notebook/notebook.ipynb
-	@echo "Directories and beginner notebook file created."
+	@mkdir -p data src 
+	@touch src/main.py
+	@echo "Directories and beginner main file created."
 
 
 # Default target to create the virtual environment, install dependencies, create directories, and run tests, style checks, and Jupyter
