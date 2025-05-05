@@ -4,5 +4,3 @@ matplotlib
 seaborn
 jupyter
 scikit-learn
-flake8
-pytest
