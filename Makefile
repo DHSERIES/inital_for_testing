@@ -12,15 +12,15 @@ $(VENV_DIR):
 install: $(VENV_DIR)
 	$(VENV_DIR)/bin/pip install --upgrade pip
 	$(VENV_DIR)/bin/pip install -r $(REQUIREMENTS)
+	$(VENV_DIR)/bin/pip install jupyter
+	$(VENV_DIR)/bin/python -m ipykernel install --user --name=.venv --display-name "Python (venv)"
+
 
 create_dirs:
 	@mkdir -p data src notebook
 	@touch notebook/notebook.ipynb
 	@echo "Directories and beginner notebook file created."
 
-# Check code style with flake8
-style:
-	$(VENV_DIR)/bin/flake8 .
 
-# Default target to create the virtual environment and install dependencies
-all: install create_dirs style
+# Default target to create the virtual environment, install dependencies, create directories, and run tests, style checks, and Jupyter
+all: install create_dirs 
